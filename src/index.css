@@ -103,18 +103,12 @@ h1, h2, h3 {
     z-index: 9999;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    width: 24px;
     height: 24px;
-    padding: 0 8px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(22, 24, 28, 0.92);
-    color: #e6e8eb;
-    font-family: "DM Sans", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 0.01em;
     pointer-events: none;
     opacity: 0;
     transform: translate3d(-100px, -100px, 0);
@@ -136,13 +130,6 @@ h1, h2, h3 {
     flex: 0 0 auto;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
     transition: background-color 180ms ease;
-  }
-
-  .custom-cursor__label {
-    font-size: 10px;
-    line-height: 1;
-    transform: translateY(-0.5px);
-    white-space: nowrap;
   }
 
   .custom-cursor.is-interactive {
@@ -213,4 +200,109 @@ h1, h2, h3 {
 
 .chat-loading span:nth-child(3) {
   animation: dot-pulse-3 1.4s ease-in-out infinite;
+}
+
+.ai-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ai-bg__canvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0.78;
+}
+
+.ai-bg__gradient,
+.ai-bg__mesh,
+.ai-bg__wave {
+  position: absolute;
+  inset: 0;
+}
+
+.ai-bg__gradient {
+  background:
+    radial-gradient(120% 84% at 12% 8%, rgba(179, 207, 224, 0.28) 0%, rgba(179, 207, 224, 0) 54%),
+    radial-gradient(92% 72% at 88% 86%, rgba(220, 206, 188, 0.2) 0%, rgba(220, 206, 188, 0) 58%),
+    linear-gradient(158deg, rgba(246, 245, 241, 0.97) 2%, rgba(238, 242, 247, 0.86) 49%, rgba(245, 240, 233, 0.92) 100%);
+}
+
+.ai-bg__mesh {
+  background:
+    repeating-linear-gradient(115deg, rgba(83, 108, 137, 0.03) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(-125deg, rgba(83, 108, 137, 0.02) 0 1px, transparent 1px 38px);
+  opacity: 0.45;
+  mask-image: radial-gradient(76% 76% at 50% 50%, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 56%, transparent 100%);
+  -webkit-mask-image: radial-gradient(76% 76% at 50% 50%, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.55) 56%, transparent 100%);
+}
+
+.ai-bg__wave {
+  filter: blur(38px);
+  transform-origin: center;
+  animation: ai-wave-drift 34s ease-in-out infinite;
+}
+
+.ai-bg__wave--one {
+  background: radial-gradient(65% 48% at 16% 35%, rgba(103, 144, 188, 0.12) 0%, rgba(103, 144, 188, 0) 68%);
+}
+
+.ai-bg__wave--two {
+  background: radial-gradient(58% 45% at 82% 26%, rgba(94, 118, 146, 0.1) 0%, rgba(94, 118, 146, 0) 66%);
+  animation-delay: -9s;
+}
+
+.ai-bg__wave--three {
+  background: radial-gradient(62% 50% at 50% 82%, rgba(160, 173, 188, 0.11) 0%, rgba(160, 173, 188, 0) 65%);
+  animation-delay: -17s;
+}
+
+html.dark .ai-bg__gradient {
+  background:
+    radial-gradient(120% 84% at 13% 10%, rgba(65, 104, 145, 0.23) 0%, rgba(65, 104, 145, 0) 52%),
+    radial-gradient(94% 72% at 87% 83%, rgba(67, 88, 118, 0.21) 0%, rgba(67, 88, 118, 0) 58%),
+    linear-gradient(158deg, rgba(14, 19, 25, 0.98) 4%, rgba(17, 24, 33, 0.91) 52%, rgba(13, 18, 24, 0.96) 100%);
+}
+
+html.dark .ai-bg__mesh {
+  background:
+    repeating-linear-gradient(115deg, rgba(142, 173, 206, 0.04) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(-125deg, rgba(142, 173, 206, 0.03) 0 1px, transparent 1px 38px);
+  opacity: 0.36;
+}
+
+html.dark .ai-bg__wave--one {
+  background: radial-gradient(65% 48% at 14% 34%, rgba(108, 148, 189, 0.12) 0%, rgba(108, 148, 189, 0) 68%);
+}
+
+html.dark .ai-bg__wave--two {
+  background: radial-gradient(60% 47% at 84% 22%, rgba(115, 139, 165, 0.1) 0%, rgba(115, 139, 165, 0) 66%);
+}
+
+html.dark .ai-bg__wave--three {
+  background: radial-gradient(66% 52% at 48% 86%, rgba(98, 128, 161, 0.11) 0%, rgba(98, 128, 161, 0) 65%);
+}
+
+@keyframes ai-wave-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate3d(0, -2%, 0) scale(1.03);
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-bg__wave {
+    animation: none;
+  }
+
+  .ai-bg__mesh {
+    opacity: 0.24;
+  }
 }

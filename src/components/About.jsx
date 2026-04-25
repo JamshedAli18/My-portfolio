@@ -6,7 +6,7 @@ import { personalInfo } from "../data/portfolioData";
 gsap.registerPlugin(ScrollTrigger);
 
 const STATS = [
-  { value: "1.5+", label: "Years in ML / AI" },
+  { value: "2+", label: "Years in ML / AI" },
   { value: "10+", label: "Certifications" },
 ];
 
@@ -89,8 +89,7 @@ const CORE_STACK = [
   },
 ];
 
-const BIO_1 = "AI Engineer with hands-on experience building LLM applications, RAG pipelines, and agentic AI systems using LangChain, LangGraph, and OpenAI APIs.";
-const BIO_2 = "I build end-to-end ML solutions with Python and FastAPI, with work spanning computer vision, NLP, and scalable intelligent systems for real-world problems.";
+const BIO = "I am an AI Engineer focused on building practical, production-ready intelligence systems, from LLM apps, RAG pipelines, and agentic workflows with LangChain, LangGraph, and OpenAI APIs to end-to-end ML solutions in Python and FastAPI across computer vision and NLP for real-world impact.";
 
 /* split sentence into words wrapped in spans */
 function SplitText({ text, className }) {
@@ -195,12 +194,8 @@ export default function About() {
             {/* Bio — word by word animation */}
             <div className="ab-bio flex flex-col gap-3 sm:gap-5 mb-4 sm:mb-6 lg:mb-8">
               <SplitText
-                text={BIO_1}
-                className="font-body text-xs sm:text-sm lg:text-base text-ink/65 dark:text-[#d4d7db]/80 leading-[1.7] sm:leading-[1.8]"
-              />
-              <SplitText
-                text={BIO_2}
-                className="font-body text-xs sm:text-sm lg:text-base text-ink/65 dark:text-[#b9bec4]/80 leading-[1.7] sm:leading-[1.8]"
+                text={BIO}
+                className="font-body text-[11px] sm:text-xs lg:text-sm text-ink/65 dark:text-[#d4d7db]/80 leading-[1.7] sm:leading-[1.8]"
               />
             </div>
 
@@ -289,7 +284,7 @@ export default function About() {
             </div>
 
             <a
-              href="https://drive.google.com/file/d/1IVsBuqwzJJwX9zugoCVTA2mZBkIt98oI/view?usp=sharing"
+              href="https://drive.google.com/file/d/1BjH1vC-awxCXjpUmHVe41MUlvNAmijjW/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-full rounded-2xl border border-warm dark:border-[#39414c] bg-paper dark:bg-[#171c23] px-5 sm:px-6 py-4 sm:py-4.5 hover:border-accent/55 transition-all duration-300"

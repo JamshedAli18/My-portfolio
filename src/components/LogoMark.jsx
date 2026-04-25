@@ -1,11 +1,8 @@
-import { useId } from "react";
-
 export default function LogoMark({ className = "", isDark = false }) {
-  const gradientId = useId();
-  const fillColor = isDark ? `url(#${gradientId})` : "#0f0f0d";
-  const borderColor = isDark ? "rgba(245, 243, 238, 0.45)" : "rgba(15, 15, 13, 0.35)";
-  const innerRingColor = isDark ? "rgba(245, 243, 238, 0.24)" : "rgba(255, 255, 255, 0.2)";
-  const textColor = "#f5f3ee";
+  const circleFill = isDark ? "url(#logo-light-fill)" : "url(#logo-dark-fill)";
+  const ringStroke = isDark ? "rgba(18, 17, 15, 0.14)" : "rgba(247, 243, 237, 0.16)";
+  const textFill = isDark ? "#161513" : "#f7f3ed";
+  const accentStroke = isDark ? "rgba(180, 113, 68, 0.22)" : "rgba(255, 255, 255, 0.12)";
 
   return (
     <svg
@@ -16,47 +13,48 @@ export default function LogoMark({ className = "", isDark = false }) {
       aria-hidden="true"
     >
       <defs>
-        <linearGradient
-          id={gradientId}
-          x1="12"
-          y1="10"
-          x2="52"
-          y2="54"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0%" stopColor="#dd6a4d" />
-          <stop offset="100%" stopColor="#c8472a" />
+        <linearGradient id="logo-dark-fill" x1="14" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#181614" />
+          <stop offset="100%" stopColor="#26221e" />
+        </linearGradient>
+        <linearGradient id="logo-light-fill" x1="14" y1="12" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#f7f3ed" />
+          <stop offset="100%" stopColor="#e8dfd2" />
         </linearGradient>
       </defs>
 
-      {/* Circle mark */}
       <circle
         cx="32"
         cy="32"
         r="24"
-        fill={fillColor}
-        stroke={borderColor}
-        strokeWidth="1.6"
+        fill={circleFill}
       />
 
       <circle
         cx="32"
         cy="32"
-        r="20.5"
-        stroke={innerRingColor}
+        r="21"
+        stroke={ringStroke}
+        strokeWidth="0.9"
+      />
+
+      <circle
+        cx="32"
+        cy="32"
+        r="18.5"
+        stroke={accentStroke}
         strokeWidth="0.8"
       />
 
-      {/* JA Text */}
       <text
         x="32"
         y="38"
         fontSize="17"
         fontWeight="700"
-        fontFamily="'DM Sans', sans-serif"
+        fontFamily="'Georgia', 'Times New Roman', serif"
         textAnchor="middle"
-        fill={textColor}
-        letterSpacing="0.45"
+        fill={textFill}
+        letterSpacing="0.3"
       >
         JA
       </text>

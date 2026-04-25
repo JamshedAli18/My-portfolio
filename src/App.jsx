@@ -9,8 +9,8 @@ import Skills from "./components/Skills";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
 import ChatWidget from "./components/ChatWidget";
+import ThreeBackground from "./components/ThreeBackground";
 import { useLenisSmoothScroll } from "./hooks/useLenisSmoothScroll";
 
 export default function App() {
@@ -19,8 +19,6 @@ export default function App() {
 
   return (
     <>
-      <CustomCursor enabled={!loading} />
-
       {/* Loader — unmounts after animation */}
       {loading && <Loader onComplete={() => setLoading(false)} />}
 
@@ -31,10 +29,12 @@ export default function App() {
           transition: "opacity 0.5s ease",
           pointerEvents: loading ? "none" : "auto",
         }}
-        className="w-full min-h-screen bg-paper dark:bg-[#0f1115] text-ink dark:text-[#e8e6e3] font-body transition-colors duration-500"
+        className="relative isolate w-full min-h-screen bg-paper dark:bg-[#0f1115] text-ink dark:text-[#e8e6e3] font-body transition-colors duration-500"
       >
-        <Navbar />
-        <main className="w-full">
+        <ThreeBackground />
+        <div className="relative z-10">
+          <Navbar />
+          <main className="w-full">
           <Hero />
           <About />
           <Services />
@@ -42,9 +42,10 @@ export default function App() {
           <Skills />
           <Certifications />
           <Contact />
-        </main>
-        <Footer />
-        <ChatWidget />
+          </main>
+          <Footer />
+          <ChatWidget />
+        </div>
       </div>
     </>
   );

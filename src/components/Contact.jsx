@@ -7,6 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const sectionRef = useRef(null);
+  const openToRoles = [
+    "AI Engineer",
+    "ML Engineer",
+    "Generative AI Developer",
+    "Agentic AI Engineer",
+    "Software Developer (Python)",
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -54,8 +61,18 @@ export default function Contact() {
               </h2>
             </div>
             <p className="ct-sub font-body text-xs sm:text-sm lg:text-base text-ink/60 dark:text-[#d4d7db]/80 leading-[1.7] sm:leading-[1.8] max-w-sm mb-4 sm:mb-6 lg:mb-8">
-              Open to AI/ML engineering roles, research collaborations, and consulting. Always happy to talk.
+              Open to AI/ML roles mentioned below.
             </p>
+            <div className="ct-sub flex flex-wrap gap-2.5 mb-4 sm:mb-6 lg:mb-8 max-w-xl">
+              {openToRoles.map((role) => (
+                <span
+                  key={role}
+                  className="inline-flex items-center rounded-full border border-warm dark:border-[#39414c] bg-paper dark:bg-[#171c23] px-3 py-1 text-[11px] sm:text-xs text-ink/70 dark:text-[#d4d7db]/80"
+                >
+                  {role}
+                </span>
+              ))}
+            </div>
             <div className="ct-sub inline-flex items-center gap-2.5 border border-warm dark:border-[#39414c] rounded-full px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 bg-paper dark:bg-[#171c23]">
               <span className="relative flex h-2 w-2 flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />

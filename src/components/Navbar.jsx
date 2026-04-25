@@ -65,12 +65,9 @@ export default function Navbar() {
           <button
             onClick={() => scrollToTarget(0, { duration: 1.1 })}
             aria-label="Go to top"
-            className="group inline-flex items-center justify-center rounded-full p-0.5 text-ink dark:text-[#f2efea] transition-transform duration-300 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full p-1 transition-transform duration-300 hover:-translate-y-0.5"
           >
-            <LogoMark
-              isDark={isDark}
-              className="h-10 w-10 drop-shadow-[0_8px_20px_rgba(15,15,13,0.08)] transition-transform duration-300 group-hover:scale-[1.02] dark:drop-shadow-[0_8px_20px_rgba(0,0,0,0.28)]"
-            />
+            <LogoMark className="h-8 w-8" isDark={isDark} />
           </button>
 
           {/* Desktop links */}

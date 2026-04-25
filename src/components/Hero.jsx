@@ -67,7 +67,7 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const QUOTE = "I don't prompt AI into existence — I architect it, fine-tune it, chain it into agents, and ship it into production where it actually has to perform.";
+  const QUOTE = "I don't prompt AI into existence - I architect it, fine-tune it, chain it into agents, and ship it into production where it actually has to perform.";
 
   return (
     <section
@@ -170,34 +170,47 @@ export default function Hero() {
         </div>
 
         {/* ── MARQUEE QUOTE ── */}
-        <div className="h-tagline w-full min-w-0 overflow-hidden mb-10 sm:mb-12">
+        <div
+          className="h-tagline relative w-full min-w-0 overflow-hidden mb-10 sm:mb-12 px-0.5"
+          style={{
+            background: isDark
+              ? "linear-gradient(180deg, #00000000 0%, #ffffff06 50%, #00000000 100%)"
+              : "linear-gradient(180deg, #00000000 0%, #00000005 50%, #00000000 100%)",
+          }}
+        >
 
           {/* top rule */}
-          <div className="w-full h-px bg-warm dark:bg-[#2e333a] mb-5" />
+          <div className="w-full h-px bg-ink/15 dark:bg-[#8d939d33] mb-3" />
 
           {/* marquee track */}
-          <div className="w-full min-w-0 flex overflow-hidden">
+          <div
+            className="w-full min-w-0 flex overflow-hidden"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+          >
             {[0, 1].map((n) => (
               <div
                 key={n}
-                className="flex-shrink-0 flex items-center gap-12"
+                className="flex-shrink-0 flex items-center gap-8"
                 style={{
-                  animation: "marquee 24s linear infinite",
+                  animation: "marquee 36s linear infinite",
                   willChange: "transform",
-                  paddingRight: "3rem",
+                  paddingRight: "2.25rem",
                 }}
               >
                 {/* main quote */}
                 <span
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    fontSize: "clamp(1.05rem, 1.6vw, 1.35rem)",
-                    color: isDark ? "#ebe8e2" : "#0f0f0d",
-                    opacity: 0.65,
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    fontSize: "clamp(0.95rem, 1.25vw, 1.08rem)",
+                    color: isDark ? "#e6e1d8" : "#1a1815",
+                    opacity: 0.9,
                     whiteSpace: "nowrap",
-                    letterSpacing: "0.025em",
+                    letterSpacing: "0.01em",
                   }}
                 >
                   "{QUOTE}"
@@ -205,21 +218,21 @@ export default function Hero() {
 
                 {/* accent dot */}
                 <span
-                  className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent"
-                  style={{ opacity: 0.5 }}
+                  className="flex-shrink-0 w-1 h-1 rounded-full bg-accent"
+                  style={{ opacity: 0.45 }}
                 />
 
                 {/* faded repeat */}
                 <span
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                    fontSize: "clamp(1.05rem, 1.6vw, 1.35rem)",
-                    color: isDark ? "#ebe8e2" : "#0f0f0d",
-                    opacity: 0.22,
+                    fontStyle: "normal",
+                    fontWeight: 500,
+                    fontSize: "clamp(0.95rem, 1.25vw, 1.08rem)",
+                    color: isDark ? "#d9d4cb" : "#25211c",
+                    opacity: 0.32,
                     whiteSpace: "nowrap",
-                    letterSpacing: "0.025em",
+                    letterSpacing: "0.01em",
                   }}
                 >
                   "{QUOTE}"
@@ -227,15 +240,15 @@ export default function Hero() {
 
                 {/* warm dot */}
                 <span
-                  className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-warm"
-                  style={{ opacity: 0.9 }}
+                  className="flex-shrink-0 w-1 h-1 rounded-full bg-warm"
+                  style={{ opacity: 0.65 }}
                 />
               </div>
             ))}
           </div>
 
           {/* bottom rule */}
-          <div className="w-full h-px bg-warm dark:bg-[#2e333a] mt-5" />
+          <div className="w-full h-px bg-ink/15 dark:bg-[#8d939d33] mt-3" />
         </div>
 
         {/* ── BOTTOM ROW: meta + buttons all on same line ── */}

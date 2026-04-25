@@ -80,7 +80,6 @@ export default function CustomCursor({ enabled = true }) {
       className={`custom-cursor ${visible ? "is-visible" : ""} ${interactive ? "is-interactive" : ""}`}
     >
       <span className="custom-cursor__dot" />
-      <span className="custom-cursor__label">Guest</span>
     </div>
   );
 }
