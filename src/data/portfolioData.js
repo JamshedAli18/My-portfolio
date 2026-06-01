@@ -6,7 +6,7 @@ export const personalInfo = {
   email:    "jamshedalisolangi018@gmail.com",
   linkedin: "https://www.linkedin.com/in/jamshed-ali-559641255/",
   github:   "https://github.com/JamshedAli18",
-  location: "Karachi, Pakistan",
+  location: "Lahore, Pakistan",
 };
 
 export const services = [
